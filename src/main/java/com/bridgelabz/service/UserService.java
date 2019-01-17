@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import com.bridgelabz.model.User;
+import com.bridgelabz.model.LoginDTO;
 import com.bridgelabz.model.Otp;
 
 public interface UserService {
@@ -14,4 +15,6 @@ public interface UserService {
    void update(long id, User user);
    void delete(long id);
     void sendOtp(Otp otp);
+	void resetPassword(String token, String password1, String password2);
+	public String login(LoginDTO loginDTO);
 }

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bridgelabz.dao.UserDao;
 import com.bridgelabz.model.User;
+import com.bridgelabz.model.LoginDTO;
 import com.bridgelabz.model.Otp;
 
 @Service
@@ -50,6 +51,23 @@ public class UserServiceImp implements UserService {
   public void sendOtp(Otp otp) {
 	// TODO Auto-generated method stub
 	 userDao.sendOtp(otp);
+}
+
+@Override
+public void resetPassword(String token, String password1, String password2) {
+	// TODO Auto-generated method stub
+	userDao.resetPassword(token);
+}
+
+public void login() {
+	// TODO Auto-generated method stub
+	userDao.login();
+}
+
+@Override
+public String login(LoginDTO loginDTO) {
+	// TODO Auto-generated method stub
+	userDao.login();
 }
 
 }

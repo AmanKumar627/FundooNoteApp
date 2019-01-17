@@ -2,11 +2,16 @@ package com.bridgelabz.model;
 
 
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -15,11 +20,23 @@ import javax.persistence.Table;
 @Table(name = "User")
 public class User {
 
+	public User() {
+		
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="user_id")
-	private Long id;
+	private Long user_id;
     
+	public Long getUser_id() {
+		 return user_id;
+	}
+
+	public void setUser_id(Long user_id) {
+		this.user_id = user_id;
+	}
+
 	@Column(name="name")
 	private String name;
     @Column(name="email")
@@ -29,14 +46,8 @@ public class User {
 
 
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+    
 	public String getName() {
 		return name;
 	}
@@ -63,7 +74,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+		return "User [id=" + user_id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
 	}
 
 }

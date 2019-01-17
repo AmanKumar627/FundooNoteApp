@@ -3,6 +3,8 @@ package com.bridgelabz.controller;
 import java.util.List;
 
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,27 +14,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bridgelabz.model.Note;
 import com.bridgelabz.service.NoteService;
-import com.bridgelabz.utility.Sendmail;
+
 import com.bridgelabz.model.Otp;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/noteController")
 public class NoteController {
 
 	 @Autowired
 	   private NoteService noteService;
-	/*
+	
+	 @RequestMapping("/")
 	  public String welcome() {
 		  return "welcome";
 	  }
-	  */
+	  
 	 
-	   @PostMapping("/note")
+	   @RequestMapping("/note")
 	   public ResponseEntity<?> save(@RequestBody Note note) {
 		   
 	      long id = noteService.save(note);

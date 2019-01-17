@@ -11,6 +11,9 @@ import javax.persistence.Table;
 @Table(name = "User_Otp")
 public class Otp {
 
+	
+		
+	
 	public static boolean getOtpnumber;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

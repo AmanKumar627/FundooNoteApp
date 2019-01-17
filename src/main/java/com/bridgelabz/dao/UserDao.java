@@ -20,4 +20,10 @@ public interface UserDao {
 
    void sendOtp(Otp otp);
 
+  void resetPassword(String token);
+
+    void login();
+
+	void login(User user);
+
 }

@@ -3,6 +3,7 @@ package com.bridgelabz.config;
 
 	import java.util.Properties;
 
+
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.context.annotation.Bean;
 	import org.springframework.context.annotation.ComponentScan;
@@ -13,10 +14,7 @@ package com.bridgelabz.config;
 	import org.springframework.orm.hibernate5.HibernateTransactionManager;
 	import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 	import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.bridgelabz.controller.UserController;
-
-import static org.hibernate.cfg.Environment.*;
+	import static org.hibernate.cfg.Environment.*;
 
 	@Configuration
 	@PropertySource("classpath:db.properties")
@@ -38,7 +36,6 @@ import static org.hibernate.cfg.Environment.*;
 	      props.put(URL, env.getProperty("mysql.url"));
 	      props.put(USER, env.getProperty("mysql.user"));
 	      props.put(PASS, env.getProperty("mysql.password"));
-
 	      // Setting Hibernate properties
 	      props.put(SHOW_SQL, env.getProperty("hibernate.show_sql"));
 	      props.put(HBM2DDL_AUTO, env.getProperty("hibernate.hbm2ddl.auto"));
@@ -53,12 +50,12 @@ import static org.hibernate.cfg.Environment.*;
 
 	      factoryBean.setHibernateProperties(props);
 	      factoryBean.setPackagesToScan("com.bridgelabz.model");
-
 	      return factoryBean;
 	   }
 
 	   @Bean
 	   public HibernateTransactionManager getTransactionManager() {
+		  
 	      HibernateTransactionManager transactionManager = new HibernateTransactionManager();
 	      transactionManager.setSessionFactory(getSessionFactory().getObject());
 	      return transactionManager;
